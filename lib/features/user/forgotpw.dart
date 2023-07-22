@@ -133,7 +133,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
                       SizedBox(height: constraints.maxWidth * 0.2),
 
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           _ForgotPassword();
                           if(isTrue==true){

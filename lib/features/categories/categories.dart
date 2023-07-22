@@ -155,7 +155,7 @@ class _CategoriesState extends State<Categories> {
                                         String name = categories[categoryIndex];
                                         return Column(
                                           children: [
-                                            GestureDetector(
+                                            InkWell(
                                               onTap: () {
                                                 Navigator.push(
                                                   context,

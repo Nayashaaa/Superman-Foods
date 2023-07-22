@@ -319,7 +319,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     //   //color: Colors.black,
                     //   height: constraints.maxWidth * 0.10,
                     //   padding: EdgeInsets.only(left: constraints.maxWidth * 0.1385, bottom: 20 ),
-                    //   child: GestureDetector(
+                    //   child: InkWell(
                     //     behavior: HitTestBehavior.translucent,
                     //     onTap: () {
                     //       setState(() {
@@ -386,7 +386,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ),
                     ),
                     SizedBox(height: constraints.maxWidth * 0.07),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         // Perform the sign-up action here
                         // You can access the entered values using TextEditingController
@@ -426,7 +426,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ),
                     ),
                     SizedBox(height: constraints.maxWidth * 0.040),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         Navigator.pushNamed(context, '/login');
                       },

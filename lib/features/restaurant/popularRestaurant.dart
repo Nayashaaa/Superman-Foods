@@ -169,7 +169,7 @@ class _popularRestaurantState extends State<popularRestaurant> {
                     horizontal: 20), // Add horizontal padding
                 itemCount: filteredItems.length,
                 itemBuilder: (context, index) {
-                  return GestureDetector(
+                  return InkWell(
                     onTap: () {
                       Navigator.push(
                         context,

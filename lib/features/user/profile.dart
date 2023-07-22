@@ -148,7 +148,7 @@ class _ProfileState extends State<Profile>{
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 Navigator.pushNamed(context, '/profileSetting');
                               },
@@ -172,7 +172,7 @@ class _ProfileState extends State<Profile>{
                                 ),
                               ),
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 print('Your fav tapped!');
                               },
@@ -196,7 +196,7 @@ class _ProfileState extends State<Profile>{
                                 ),
                               ),
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                               },
                               child: Container(
@@ -219,7 +219,7 @@ class _ProfileState extends State<Profile>{
                                 ),
                               ),
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 Navigator.pushNamed(context, '/privacy');
                               },
@@ -243,7 +243,7 @@ class _ProfileState extends State<Profile>{
                                 ),
                               ),
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 Navigator.pushNamed(context, '/return');
                               },
@@ -268,7 +268,7 @@ class _ProfileState extends State<Profile>{
                                 ),
                               ),
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                               },
                               child: Container(
@@ -293,7 +293,7 @@ class _ProfileState extends State<Profile>{
                             ),
                             SizedBox(height: constraints.maxHeight * 0.04,),
 
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 logout();
                               },

@@ -367,7 +367,7 @@ class _HomeState extends State<Home> {
                                         String img = catImg[categoryIndex];
                                         return Column(
                                           children: [
-                                            GestureDetector(
+                                            InkWell(
                                               onTap: () {
                                                 Navigator.push(
                                                   context,
@@ -493,7 +493,7 @@ class _HomeState extends State<Home> {
                                       .map(
                                     (item) {
                                       int itemIndex = items.indexOf(item);
-                                      return GestureDetector(
+                                      return InkWell(
                                         onTap: () {
                                           Navigator.push(
                                             context,
@@ -772,7 +772,7 @@ class _HomeState extends State<Home> {
                                       .map(
                                     (name) {
                                       int restIndex = names.indexOf(name);
-                                      return GestureDetector(
+                                      return InkWell(
                                         onTap: () {
                                           Navigator.push(
                                             context,

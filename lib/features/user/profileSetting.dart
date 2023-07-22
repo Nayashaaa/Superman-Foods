@@ -195,7 +195,7 @@ class _profileSettingState extends State<profileSetting>{
 
                           Container(
                               margin: EdgeInsets.all(60),
-                              child: GestureDetector(
+                              child: InkWell(
                                 onTap: (){
                                   selectImage();
                                 },
@@ -342,7 +342,7 @@ class _profileSettingState extends State<profileSetting>{
                             ),
                           ),
                           SizedBox(height: constraints.maxWidth * 0.09),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               
                             },

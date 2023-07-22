@@ -203,7 +203,7 @@ class _favouritesState extends State<favourites> {
                         ),
                         Column(
                 children: List.generate(items.length, (index) {
-                  return GestureDetector(
+                  return InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
@@ -296,7 +296,7 @@ class _favouritesState extends State<favourites> {
                                       ),
                                     ),
                                     ),
-                                    GestureDetector(
+                                    InkWell(
                                       onTap: () {
                                         _deleteItem(index);
                                       },

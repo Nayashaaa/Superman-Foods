@@ -89,7 +89,7 @@ class _singleProductState extends State<singleProduct> {
                 alignment: Alignment.center,
                 child: Column(
                   children: [
-                    GestureDetector(
+                    InkWell(
                         onTap: () {
                           Navigator.pop(context); // Redirect to the same page
                         },
@@ -441,7 +441,7 @@ class _singleProductState extends State<singleProduct> {
                               ),
                               Row(
                                 children: [
-                                  GestureDetector(
+                                  InkWell(
                                       onTap: () {
                                         // Perform the sign-up action here
                                         // You can access the entered values using TextEditingController
@@ -495,7 +495,7 @@ class _singleProductState extends State<singleProduct> {
                                   SizedBox(
                                     width: constraints.maxWidth * 0.04,
                                   ),
-                                  GestureDetector(
+                                  InkWell(
                                     onTap: () {
                                       addToFav();
                                     },

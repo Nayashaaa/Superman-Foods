@@ -288,7 +288,7 @@ class _popularMenuState extends State<popularMenu> {
                 String image = images[itemIndex];
                 String desc = description[itemIndex];
                 String rate = price[itemIndex];
-                return GestureDetector(
+                return InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
@@ -378,7 +378,7 @@ class _popularMenuState extends State<popularMenu> {
                                       ),
                                     ),
                                     ),
-                                    GestureDetector(
+                                    InkWell(
                                       onTap: () {
                                         addToFav(itemIndex);
                                       },

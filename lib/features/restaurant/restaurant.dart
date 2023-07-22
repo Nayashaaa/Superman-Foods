@@ -357,7 +357,7 @@ class _RestaurantState extends State<Restaurant> {
                   child: SingleChildScrollView
                 (child: Column(
                 children: List.generate(items.length, (index) {
-                  return GestureDetector(
+                  return InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
@@ -450,7 +450,7 @@ class _RestaurantState extends State<Restaurant> {
                                       ),
                                     ),
                                     ),
-                                    GestureDetector(
+                                    InkWell(
                                       onTap: () {
                                         // addToFav(index);
                                       },

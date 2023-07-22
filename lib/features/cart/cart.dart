@@ -638,7 +638,7 @@ class _cartState extends State<cart> {
                           ),
                         ),
                       ),
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           _validateCoupon();
                         },
@@ -827,7 +827,7 @@ class _cartState extends State<cart> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => confirmLocation()));

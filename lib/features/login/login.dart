@@ -281,7 +281,7 @@ class _LoginFormState extends State<LoginForm> {
                       ),
 
                       SizedBox(height: constraints.maxWidth * 0.06),
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, '/forgotpw');
                         },
@@ -297,7 +297,7 @@ class _LoginFormState extends State<LoginForm> {
                       ),
 
                       SizedBox(height: constraints.maxWidth * 0.02),
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
 
                         },
@@ -344,7 +344,7 @@ class _LoginFormState extends State<LoginForm> {
                         ),
                       ),
                       SizedBox(height: constraints.maxWidth * 0.045),
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, '/register');
                         },

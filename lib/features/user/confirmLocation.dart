@@ -61,7 +61,7 @@ class _confirmLocationState extends State<confirmLocation> {
                 ) 
                 ),
 
-                GestureDetector(
+                InkWell(
                   onTap: (){
 
                   },

@@ -289,7 +289,7 @@ class _categoryMenuState extends State<categoryMenu> {
               ),
               Column(
                 children: List.generate(items.length, (index) {
-                  return GestureDetector(
+                  return InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
@@ -382,7 +382,7 @@ class _categoryMenuState extends State<categoryMenu> {
                                       ),
                                     ),
                                     ),
-                                    GestureDetector(
+                                    InkWell(
                                       onTap: () {
                                         addToFav(index);
                                       },

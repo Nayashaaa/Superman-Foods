@@ -64,7 +64,7 @@ class _OnboardingState extends State<Onboard> {
                 ),
               ),
             ),
-            GestureDetector(
+            InkWell(
               onTap: () {
                 // Perform the sign-up action here
                 // You can access the entered values using TextEditingController

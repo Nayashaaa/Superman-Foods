@@ -58,7 +58,7 @@ class _BottomMenuState extends State<BottomMenu> {
                     size: 33,
                   ),
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: (){
                     Navigator.pushNamed(context, '/carts');
                   },
