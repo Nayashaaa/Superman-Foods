@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:supertest/cart.dart';
-import 'package:supertest/categories.dart';
-import 'package:supertest/category_menu.dart';
-import 'package:supertest/favourites.dart';
-import 'package:supertest/popularMenu.dart';
-import 'package:supertest/popularRestaurant.dart';
-import 'package:supertest/privacy.dart';
-import 'package:supertest/profile.dart';
-import 'package:supertest/profileSetting.dart';
-import 'package:supertest/return.dart';
-import 'package:supertest/singleProduct.dart';
-import 'package:supertest/splash.dart';
-import 'home.dart';
-import 'register.dart';
-import 'login.dart';
-import 'forgotpw.dart';
-import 'bottom_menu.dart';
+import 'package:supertest/features/cart/cart.dart';
+import 'package:supertest/features/categories/categories.dart';
+import 'package:supertest/features/categories/category_menu.dart';
+import 'package:supertest/features/favourites/favourites.dart';
+import 'package:supertest/features/menu/popularMenu.dart';
+import 'package:supertest/features/restaurant/popularRestaurant.dart';
+import 'package:supertest/features/policies/privacy_policy.dart';
+import 'package:supertest/features/user/profile.dart';
+import 'package:supertest/features/user/profileSetting.dart';
+import 'package:supertest/features/policies/return_policy.dart';
+import 'package:supertest/features/menu/singleProduct.dart';
+import 'package:supertest/splash/splash.dart';
+import 'features/home/home.dart';
+import 'features/resgister/register.dart';
+import 'features/login/login.dart';
+import 'features/user/forgotpw.dart';
+import 'widgets/bottom_menu.dart';
 
 
 void main() {
