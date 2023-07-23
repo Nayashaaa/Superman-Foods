@@ -1,5 +1,3 @@
-// ignore_for_file: unused_field, unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pocketbase/pocketbase.dart';
@@ -11,7 +9,6 @@ class RegistrationForm extends StatefulWidget {
 }
 
 class _RegistrationFormState extends State<RegistrationForm> {
-  final bool _keepSignedIn = false;
   bool _emailSpecialPricing = false;
   final _formKey = GlobalKey<FormState>();
   final pb = PocketBase('http://78.47.197.153');
@@ -25,29 +22,87 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
 
   Future<void> _registerUser() async {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-
-      final body = <String, dynamic>{
-        "full_name": _fullname,
-        "username": _username,
-        "email": _email,
-        "emailVisibility": true,
-        "password": _password,
-        "passwordConfirm": _cpassword
-      };
-
-      final record = await pb.collection('users').create(body: body);
-      await pb.collection('users').requestVerification(_email);
-
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => LoginForm()),
-        );
-
-      print('User registered successfully');
-
-    }
+    try {
+  if (_formKey.currentState!.validate()) {
+    _formKey.currentState!.save();
+  
+    final body = <String, dynamic>{
+      "full_name": _fullname,
+      "username": _username,
+      "email": _email,
+      "emailVisibility": true,
+      "password": _password,
+      "passwordConfirm": _cpassword
+    };
+  
+    // ignore: unused_local_variable
+    final record = await pb.collection('users').create(body: body);
+    await pb.collection('users').requestVerification(_email);
+  
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginForm()),
+      );
+  
+    print('User registered successfully');
+  
+  }
+} catch (e) {
+  String error = e.toString();
+  print(error);
+  if (error =="ClientException: {url: http://78.47.197.153/api/collections/users/records, isAbort: false, statusCode: 400, response: {code: 400, message: Failed to create record., data: {username: {code: validation_invalid_username, message: The username is invalid or already in use.}}}, originalError: null}" )
+  {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text('This username is already in use.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('Ok'),
+              ),
+            ],
+          );
+        },
+      );
+  }
+  else if(error == "ClientException: {url: http://78.47.197.153/api/collections/users/records, isAbort: false, statusCode: 400, response: {code: 400, message: Failed to create record., data: {email: {code: validation_invalid_email, message: The email is invalid or already in use.}}}, originalError: null}")
+  {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text('This email is already in use.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('Ok'),
+              ),
+            ],
+          );
+        },
+      );
+  }
+  else if(error == "ClientException: {url: http://78.47.197.153/api/collections/users/records, isAbort: false, statusCode: 400, response: {code: 400, message: Failed to create record., data: {email: {code: validation_invalid_email, message: The email is invalid or already in use.}, username: {code: validation_invalid_username, message: The username is invalid or already in use.}}}, originalError: null}")
+  {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text('Username and Email is already in use.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('Ok'),
+              ),
+            ],
+          );
+        },
+      );
+  }
+}
+    
   }
 
   Future<void> loadFont() async {
@@ -65,7 +120,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return Scaffold(
+    body: Form(
       key: _formKey,
       child: Container(
         decoration: BoxDecoration(
@@ -313,42 +369,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onSaved: (value) => _cpassword = value!,
                       ),
                     ),
-                    SizedBox(height: 5),
-                    // Container(
-                    //   //color: Colors.black,
-                    //   height: constraints.maxWidth * 0.10,
-                    //   padding: EdgeInsets.only(left: constraints.maxWidth * 0.1385, bottom: 20 ),
-                    //   child: InkWell(
-                    //     behavior: HitTestBehavior.translucent,
-                    //     onTap: () {
-                    //       setState(() {
-                    //         _keepSignedIn = !_keepSignedIn;
-                    //       });
-                    //     },
-                    //     // child: CheckboxListTile(
-                    //     //   title: Text(
-                    //     //     'Keep me signed in',
-                    //     //     style: TextStyle(
-                    //     //       fontSize: MediaQuery.of(context).size.width * 0.04,
-                    //     //       fontFamily: 'Lato',
-                    //     //       color: Colors.white,
-                    //     //     ),
-                    //     //   ),
-                    //     //   value: _keepSignedIn,
-                    //     //   onChanged: (bool? newValue) {
-                    //     //     if (newValue != null) {
-                    //     //       setState(() {
-                    //     //         _keepSignedIn = newValue;
-                    //     //       });
-                    //     //     }
-                    //     //   },
-                    //     //   activeColor: Colors.white,
-                    //     //   checkColor: Colors.red,
-                    //     //   controlAffinity: ListTileControlAffinity.leading,
-                    //     //   contentPadding: EdgeInsets.zero,
-                    //     // ),
-                    //   ),
-                    // ),
                     SizedBox(height: 4),
                     Container(
                       height: constraints.maxWidth * 0.06,
@@ -387,8 +407,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     SizedBox(height: constraints.maxWidth * 0.07),
                     InkWell(
                       onTap: () {
-                        // Perform the sign-up action here
-                        // You can access the entered values using TextEditingController
+                        
                       },
                       child: Container(
                         margin: EdgeInsets.only(
@@ -427,7 +446,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     SizedBox(height: constraints.maxWidth * 0.040),
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, '/login');
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => LoginForm()),
+                          );
                       },
                       child: Text(
                         'Already have an account? Sign In',
@@ -447,6 +469,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
           },
         ),
       ),
+    )
     );
   }
 

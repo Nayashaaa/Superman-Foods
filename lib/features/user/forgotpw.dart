@@ -27,7 +27,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return Scaffold(
+    body: Form(
       key: _formKey,
         child: Container(
           decoration: BoxDecoration(
@@ -205,6 +206,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           ),
         ),
 
+    )
     );
   }
 }

@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:supertest/features/home/home.dart';
+import 'package:supertest/features/resgister/register.dart';
+import 'package:supertest/features/user/forgotpw.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -82,6 +84,20 @@ class _LoginFormState extends State<LoginForm> {
         
       } catch (e) {
         print('Error logging in: $e');
+        return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text('Invalid username or password'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('Ok'),
+              ),
+            ],
+          );
+        },
+      );
       }
     }
   }
@@ -283,7 +299,10 @@ class _LoginFormState extends State<LoginForm> {
                       SizedBox(height: constraints.maxWidth * 0.06),
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, '/forgotpw');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ForgotPassword()),
+                          );
                         },
                         child: Text(
                           'Fogrot Password',
@@ -346,7 +365,10 @@ class _LoginFormState extends State<LoginForm> {
                       SizedBox(height: constraints.maxWidth * 0.045),
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, '/register');
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => RegistrationForm()),
+                          );
                         },
                         child: Text(
                           'Do not have an account? Register here',
