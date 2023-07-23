@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
-import 'package:supertest/main.dart';
+import 'package:supertest/features/favourites/favourites.dart';
+import 'package:supertest/features/home/home.dart';
+import 'package:supertest/features/login/login.dart';
 import 'package:pocketbase/pocketbase.dart';
+import 'package:supertest/features/policies/privacy_policy.dart';
+import 'package:supertest/features/policies/return_policy.dart';
+import 'package:supertest/features/user/userSetting.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -43,15 +48,43 @@ class _ProfileState extends State<Profile>{
   Future<void> logout() async {
     try{
       await SessionManager().destroy();
-      Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginPage()),
-        );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginForm()),
+      );
     }
     catch(e){
       print('Error logging out: $e');
     }
   }
+
+  Future<void> confirmLogout() async {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm'),
+          content: Text(
+              'Are you sure you want to logout?'),
+          actions: [
+            TextButton(
+              onPressed: () =>
+                  Navigator.of(context)
+                      .pop(false),
+              child: Text('No'),
+            ),
+            TextButton(
+              onPressed: () =>
+                  logout(),
+              child: Text('Yes'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  
 
 
 
@@ -80,7 +113,10 @@ class _ProfileState extends State<Profile>{
                           child: IconButton(
                             icon: Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 25),
                             onPressed: () {
-                              Navigator.pushNamed(context, '/home');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Home()),
+                              );
                             },
                           ),
                         ),
@@ -150,7 +186,10 @@ class _ProfileState extends State<Profile>{
                           children: [
                             InkWell(
                               onTap: () {
-                                Navigator.pushNamed(context, '/profileSetting');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => profileSetting()),
+                                );
                               },
                               child: Container(
                                 height: constraints.maxHeight * 0.068,
@@ -174,7 +213,10 @@ class _ProfileState extends State<Profile>{
                             ),
                             InkWell(
                               onTap: () {
-                                print('Your fav tapped!');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => favourites()),
+                                );
                               },
                               child: Container(
                                 height: constraints.maxHeight * 0.068,
@@ -221,7 +263,10 @@ class _ProfileState extends State<Profile>{
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.pushNamed(context, '/privacy');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Privacy()),
+                                );
                               },
                               child: Container(
                                 height: constraints.maxHeight * 0.068,
@@ -245,7 +290,10 @@ class _ProfileState extends State<Profile>{
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.pushNamed(context, '/return');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Return()),
+                                );
                               },
                               child: Container(
                                 height: constraints.maxHeight * 0.068,
@@ -295,7 +343,8 @@ class _ProfileState extends State<Profile>{
 
                             InkWell(
                               onTap: () {
-                                logout();
+                                confirmLogout();
+                                
                               },
                               child: Container(
                                 height: constraints.maxHeight * 0.068,

@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pocketbase/pocketbase.dart';
-
-import '../../main.dart';
+import 'package:supertest/features/login/login.dart';
 
 class RegistrationForm extends StatefulWidget {
   @override
@@ -41,9 +40,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
       final record = await pb.collection('users').create(body: body);
       await pb.collection('users').requestVerification(_email);
 
-      Navigator.push(
+      Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => LoginPage()),
+          MaterialPageRoute(builder: (context) => LoginForm()),
         );
 
       print('User registered successfully');

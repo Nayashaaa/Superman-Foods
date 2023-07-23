@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:supertest/main.dart';
+import 'package:supertest/features/login/login.dart';
 
 import '../onboard/onboard.dart';
 
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => _seenOnboarding ? LoginPage() : Onboard(),
+          builder: (context) => _seenOnboarding ? LoginForm() : Onboard(),
         ),
       );
     });

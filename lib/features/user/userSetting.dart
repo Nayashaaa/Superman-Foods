@@ -155,7 +155,7 @@ class _profileSettingState extends State<profileSetting>{
                           child: IconButton(
                             icon: Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 25),
                             onPressed: () {
-                              Navigator.pushNamed(context, '/profile');
+                              Navigator.pop(context);
                             },
                           ),
                         ),

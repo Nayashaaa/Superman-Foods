@@ -89,7 +89,7 @@ class _cartState extends State<cart> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: Text('Ok'),
+                child: Text('Haina dai'),
               ),
             ],
           );
@@ -190,9 +190,9 @@ class _cartState extends State<cart> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-      body: Container(
+    return Scaffold(
+      body: SafeArea(
+      child: Container(
         decoration: BoxDecoration(
           color: Colors.grey[200],
         ),
@@ -220,7 +220,7 @@ class _cartState extends State<cart> {
                                   size: 25,
                                 ),
                                 onPressed: () {
-                                  Navigator.pushNamed(context, '/home');
+                                  Navigator.pop(context);
                                 },
                               ),
                             ),
@@ -538,15 +538,15 @@ class _cartState extends State<cart> {
                                                           ),
  
                                                           ),
-                                                                                                                 ],
+                                                          ],
                                                       ),
  
                                                       ),
-                                                                                                          ],
+                                                      ],
                                                   ),
 
                                                   ),
-                                                                                                  ],
+                                                  ],
                                               ),
                                             ),
                                           ],
@@ -829,8 +829,10 @@ class _cartState extends State<cart> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => confirmLocation()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => confirmLocation()),
+                      );
                     },
                     child: Container(
                         width: MediaQuery.of(context).size.width * 0.8,

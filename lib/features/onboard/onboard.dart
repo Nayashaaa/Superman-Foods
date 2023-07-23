@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import '../main.dart';
+import 'package:supertest/features/resgister/register.dart';
 import 'onboardModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -109,7 +108,7 @@ class _OnboardingState extends State<Onboard> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RegisterPage(),
+                        builder: (context) => RegistrationForm(),
                       ),
                     );
                   }

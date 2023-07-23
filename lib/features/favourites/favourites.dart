@@ -171,7 +171,7 @@ class _favouritesState extends State<favourites> {
                                 icon: Icon(Icons.arrow_back_ios_new,
                                     color: Colors.redAccent, size: 25),
                                 onPressed: () {
-                                  Navigator.pushNamed(context, '/home');
+                                  Navigator.pop(context);
                                 },
                               ),
                             ),

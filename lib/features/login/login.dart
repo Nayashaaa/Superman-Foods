@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:pocketbase/pocketbase.dart';
-
-import '../../main.dart';
+import 'package:supertest/features/home/home.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -36,7 +35,7 @@ class _LoginFormState extends State<LoginForm> {
     if (isLoggedIn) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => home()),
+        MaterialPageRoute(builder: (context) => Home()),
       );
     }
   }
@@ -52,9 +51,9 @@ class _LoginFormState extends State<LoginForm> {
           _password,
         );
 
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => home()),
+          MaterialPageRoute(builder: (context) => Home()),
         );
 
         print(pb.authStore.token);
@@ -102,7 +101,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    return Scaffold(
+    body: WillPopScope(
       onWillPop: () async => false, // Disable back button
       child: Form(
         key: _formKey,
@@ -366,6 +366,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
         ),
       ),
+    )
     );
   }
 }

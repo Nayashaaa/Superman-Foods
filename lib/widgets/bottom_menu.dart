@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:supertest/features/cart/cart.dart';
+import 'package:supertest/features/favourites/favourites.dart';
+import 'package:supertest/features/home/home.dart';
+import 'package:supertest/features/user/profile.dart';
 
 class BottomMenu extends StatefulWidget {
   const BottomMenu({Key? key, required this.activeIndex}) : super(key: key);
@@ -40,7 +44,9 @@ class _BottomMenuState extends State<BottomMenu> {
               children: [
                 IconButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
                   },
                   icon: Icon(
                     Icons.home_outlined,
@@ -50,7 +56,10 @@ class _BottomMenuState extends State<BottomMenu> {
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/favourites');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => favourites()),
+                    );
                   },
                   icon: Icon(
                     Icons.favorite_border,
@@ -60,7 +69,9 @@ class _BottomMenuState extends State<BottomMenu> {
                 ),
                 InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, '/carts');
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => cart()),
+                    );
                   },
                   child: Transform.translate(
                   offset: Offset(0, -30),
@@ -81,7 +92,9 @@ class _BottomMenuState extends State<BottomMenu> {
                     ),
                     child: IconButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/carts');
+                        Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => cart()),
+                    );
                       },
                       icon: Icon(
                         Icons.shopping_cart_outlined,
@@ -102,7 +115,9 @@ class _BottomMenuState extends State<BottomMenu> {
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/profile');
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Profile()),
+                    );
                   },
                   icon: Icon(
                     Icons.person_2_outlined,

@@ -10,9 +10,9 @@ class confirmLocation extends StatefulWidget {
 class _confirmLocationState extends State<confirmLocation> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body:  Container(
+    return Scaffold(
+      body: SafeArea(
+        child:  Container(
           decoration: BoxDecoration(
             color: Colors.grey[200]
           ),
@@ -32,7 +32,7 @@ class _confirmLocationState extends State<confirmLocation> {
                           size: 25,
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/home');
+                          Navigator.pop(context);
                         },
                       ),
                     ),

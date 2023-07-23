@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:pocketbase/pocketbase.dart';
+import 'package:supertest/features/categories/categories.dart';
+import 'package:supertest/features/menu/popularMenu.dart';
+import 'package:supertest/features/restaurant/popularRestaurant.dart';
 import 'package:supertest/features/restaurant/restaurant.dart';
 import 'package:supertest/features/menu/singleProduct.dart';
 import 'package:supertest/widgets/bottom_menu.dart';
@@ -322,8 +325,10 @@ class _HomeState extends State<Home> {
                                 ),
                                 TextButton(
                                     onPressed: () {
-                                      Navigator.pushNamed(
-                                          context, '/categories');
+                                      Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Categories()),
+                                    );
                                     },
                                     child: Text(
                                       'View More',
@@ -456,8 +461,10 @@ class _HomeState extends State<Home> {
                                 ),
                                 TextButton(
                                     onPressed: () {
-                                      Navigator.pushNamed(
-                                          context, '/popularMenu');
+                                      Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => popularMenu()),
+                                    );
                                     },
                                     child: Text(
                                       'View More',
@@ -730,8 +737,10 @@ class _HomeState extends State<Home> {
                                 ),
                                 TextButton(
                                     onPressed: () {
-                                      Navigator.pushNamed(
-                                          context, '/popularRestaurant');
+                                      Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => popularRestaurant()),
+                                    );
                                     },
                                     child: Text(
                                       'View More',

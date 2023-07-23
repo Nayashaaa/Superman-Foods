@@ -157,13 +157,12 @@ class _RestaurantState extends State<Restaurant> {
                                           alignment:
                                               AlignmentDirectional(-1.05, -1),
                                           child: IconButton(
-                                            color: Colors.yellowAccent,
                                             icon: Icon(
                                                 Icons.arrow_back_ios_new_sharp,
                                                 color: Colors.white,
                                                 size: 30),
                                             onPressed: () {
-                                              Navigator.pushNamed(context, '/popularRestaurant');
+                                              Navigator.pop(context);
                                             },
                                           ),
                                         ),

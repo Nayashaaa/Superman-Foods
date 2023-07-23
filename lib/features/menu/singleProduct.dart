@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:pocketbase/pocketbase.dart';
+import 'package:supertest/features/cart/cart.dart';
 
 class singleProduct extends StatefulWidget {
   final String items;
@@ -119,7 +120,10 @@ class _singleProductState extends State<singleProduct> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/carts');
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => cart()),
+                        );
                       },
                     ),
                   ],
