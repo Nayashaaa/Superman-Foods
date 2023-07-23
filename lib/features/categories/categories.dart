@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:supertest/features/categories/category_menu.dart';
+import 'package:supertest/widgets/bottom_menu.dart';
 
 import '../../widgets/notification_button.dart';
 
@@ -216,6 +217,7 @@ class _CategoriesState extends State<Categories> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomMenu(activeIndex: 0),
     ));
   }
 }

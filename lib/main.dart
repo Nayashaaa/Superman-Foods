@@ -102,7 +102,6 @@ class priv extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       body: Privacy(),
-      bottomNavigationBar: BottomMenu(activeIndex: 4),
     );
   }
 }
@@ -112,7 +111,6 @@ class ret extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       body: Return(),
-      bottomNavigationBar: BottomMenu(activeIndex: 4),
     );
   }
 }
@@ -131,7 +129,6 @@ class home extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       body: Home(),
-      bottomNavigationBar: BottomMenu(activeIndex: 0),
     );
   }
 }
@@ -141,7 +138,6 @@ class cat extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       body: Categories(),
-      bottomNavigationBar: BottomMenu(activeIndex: 0),
     );
   }
 }
@@ -151,7 +147,6 @@ class popMenu extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       body: popularMenu(),
-      bottomNavigationBar: BottomMenu(activeIndex: 0),
     );
   }
 }
@@ -161,7 +156,6 @@ class favfood extends StatelessWidget{
   Widget build(BuildContext context){   
     return Scaffold(
       body: favourites(),
-      bottomNavigationBar: BottomMenu(activeIndex: 1),
     );
   }
 }
@@ -189,7 +183,6 @@ class popRestaurant extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       body: popularRestaurant(),
-      bottomNavigationBar: BottomMenu(activeIndex: 0),
     );
   }
 }

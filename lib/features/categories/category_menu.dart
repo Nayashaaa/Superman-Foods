@@ -191,7 +191,7 @@ class _categoryMenuState extends State<categoryMenu> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[200],
-      body: SingleChildScrollView(
+          body: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(height: mediaQuery.size.height * 0.01),

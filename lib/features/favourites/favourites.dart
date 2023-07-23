@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:supertest/features/menu/singleProduct.dart';
+import 'package:supertest/widgets/bottom_menu.dart';
 
 import '../../widgets/notification_button.dart';
 
@@ -362,6 +363,7 @@ class _favouritesState extends State<favourites> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomMenu(activeIndex: 1),
     ));
   }
 }

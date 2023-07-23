@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:supertest/features/restaurant/restaurant.dart';
+import 'package:supertest/widgets/bottom_menu.dart';
 
 import '../../widgets/notification_button.dart';
 
@@ -227,6 +228,7 @@ class _popularRestaurantState extends State<popularRestaurant> {
             ],
           ),
         ),
+        bottomNavigationBar: BottomMenu(activeIndex: 0),
       ),
     );
   }

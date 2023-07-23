@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supertest/widgets/bottom_menu.dart';
 
 class Privacy extends StatefulWidget {
   @override
@@ -9,8 +10,8 @@ class _PrivacyState extends State<Privacy> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Container(
+      child: Scaffold(
+        body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('lib/assets/images/privacy.png'),
@@ -82,6 +83,8 @@ class _PrivacyState extends State<Privacy> {
               ),
             ],
           )),
+          
+      bottomNavigationBar: BottomMenu(activeIndex: 4),
     ));
   }
 }

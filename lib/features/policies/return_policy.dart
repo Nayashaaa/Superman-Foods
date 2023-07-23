@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supertest/widgets/bottom_menu.dart';
 
 class Return extends StatefulWidget {
   @override
@@ -91,6 +92,7 @@ class _ReturnState extends State<Return>{
         )
 
       ),
+      bottomNavigationBar: BottomMenu(activeIndex: 4),
     )
     );
   }
