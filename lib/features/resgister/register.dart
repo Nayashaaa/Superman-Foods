@@ -138,7 +138,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
                 child: Column(
                   children: [
-                    SizedBox(height: constraints.maxWidth * 0.28),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.14),
                     Container(
                       height: 58,
                       child: Center(
@@ -146,7 +146,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           'SUPERMAN',
                           style: TextStyle(
                             fontFamily: 'Viga',
-                            fontSize: constraints.maxWidth * 0.13,
+                            fontSize: MediaQuery.of(context).size.width * 0.13,
                             fontWeight: FontWeight.w400,
                             color: Colors.white,
                           ),
@@ -156,24 +156,24 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: Container(
-                        margin: EdgeInsets.only(right: constraints.maxWidth * 0.17),
+                        margin: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.17),
                         child: Text(
                           'Food-Delivery',
                           style: TextStyle(
-                            fontSize: constraints.maxWidth * 0.05,
+                            fontSize: MediaQuery.of(context).size.width * 0.05,
                             color: Colors.white,
                             fontFamily: 'Lato',
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: constraints.maxWidth * 0.105),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.06),
                     Container(
                       child: Center(
                         child: Text(
                           'Sign Up For Free',
                           style: TextStyle(
-                            fontSize: constraints.maxWidth * 0.062,
+                            fontSize: MediaQuery.of(context).size.width * 0.062,
                             fontFamily: 'Lato',
                             color: Colors.black,
                             fontWeight: FontWeight.w800,
@@ -181,12 +181,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         ),
                       ),
                     ),
-                    SizedBox(height: constraints.maxWidth * 0.045),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     Container(
                       width: double.infinity,
-                      height: constraints.maxWidth * 0.136,
+                      height: MediaQuery.of(context).size.height * 0.065,
                       margin: EdgeInsets.symmetric(
-                        horizontal: constraints.maxWidth * 0.1385,
+                        horizontal: MediaQuery.of(context).size.width * 0.1385,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -203,7 +203,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           hintText: "Full Name",
-                          hintStyle: TextStyle(fontSize: constraints.maxWidth * 0.035, height: 1.6),
+                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.3),
                           prefixIcon: Icon(Icons.person, color:Colors.red[300]),
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(16),
@@ -218,10 +218,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ),
                     ),
 
-                    SizedBox(height: constraints.maxWidth * 0.035),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.017),
                     Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.width * 0.136,
+                      height: MediaQuery.of(context).size.height * 0.065,
                       margin: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.1385,
                       ),
@@ -240,7 +240,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           hintText: "Username",
-                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.6),
+                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.3),
                           prefixIcon: Icon(Icons.person, color:Colors.red[300]),
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(16),
@@ -254,10 +254,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onSaved: (value) => _username = value!,
                       ),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.width * 0.035),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.017),
                     Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.width * 0.136,
+                      height: MediaQuery.of(context).size.height * 0.065,
                       margin: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.1385,
                       ),
@@ -276,7 +276,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           hintText: "Email",
-                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.6),
+                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.3),
                           prefixIcon: Icon(Icons.email_rounded, color:Colors.red[300]),
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(16),
@@ -292,10 +292,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onSaved: (value) => _email = value!,
                       ),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.width * 0.035),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.017),
                     Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.width * 0.136,
+                      height: MediaQuery.of(context).size.height * 0.065,
                       margin: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.1385,
                       ),
@@ -314,7 +314,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           hintText: "Password",
-                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.6),
+                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.3),
                           prefixIcon: Icon(Icons.lock, color:Colors.red[300]),
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(16),
@@ -331,10 +331,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onSaved: (value) => _password = value!,
                       ),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.width * 0.035),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.017),
                     Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.width * 0.136,
+                      height: MediaQuery.of(context).size.height * 0.065,
                       margin: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.1385,
                       ),
@@ -353,7 +353,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
-                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.6),
+                          hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.035, height: 1.3),
                           prefixIcon: Icon(Icons.lock, color:Colors.red[300]),
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(16),
@@ -369,10 +369,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onSaved: (value) => _cpassword = value!,
                       ),
                     ),
-                    SizedBox(height: 4),
                     Container(
-                      height: constraints.maxWidth * 0.06,
-                      padding: EdgeInsets.only(left: constraints.maxWidth * 0.1385),
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1385),
                       child: GestureDetector(
                         behavior: HitTestBehavior.translucent,
                         onTap: () {
@@ -384,7 +383,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           title: Text(
                             'Get special pricing by email',
                             style: TextStyle(
-                              fontSize: MediaQuery.of(context).size.width * 0.04,
+                              fontSize: MediaQuery.of(context).size.width * 0.037,
                               fontFamily: 'Lato',
                               color: Colors.white,
                             ),
@@ -404,19 +403,18 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         ),
                       ),
                     ),
-                    SizedBox(height: constraints.maxWidth * 0.07),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.014),
                     InkWell(
                       onTap: () {
                         
                       },
                       child: Container(
                         margin: EdgeInsets.only(
-                          top: constraints.maxWidth * 0.05,
-                          left: 70,
-                          right: 70,
+                          left: MediaQuery.of(context).size.width * 0.07,
+                          right: MediaQuery.of(context).size.width * 0.07,
                         ),
-                        width: 250,
-                        height: 56,
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        height: MediaQuery.of(context).size.height * 0.07,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.centerLeft,
@@ -434,7 +432,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             child: Text(
                               'Create Account',
                               style: TextStyle(
-                                fontSize: constraints.maxWidth * 0.05,
+                                fontSize: MediaQuery.of(context).size.width * 0.05,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.black,
                               ),
@@ -443,7 +441,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         ),
                       ),
                     ),
-                    SizedBox(height: constraints.maxWidth * 0.040),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.025),
                     InkWell(
                       onTap: () {
                         Navigator.pushReplacement(
@@ -454,7 +452,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       child: Text(
                         'Already have an account? Sign In',
                         style: TextStyle(
-                          fontSize: constraints.maxWidth * 0.04,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                           color: Colors.white,
                           fontFamily: 'Lato',
                           decoration: TextDecoration.underline,

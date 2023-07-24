@@ -1,4 +1,4 @@
-#Sun Jul 23 12:20:18 NPT 2023
+#Mon Jul 24 10:48:13 NPT 2023
 base.0=C\:\\Users\\nayas\\Downloads\\newsuperman\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
