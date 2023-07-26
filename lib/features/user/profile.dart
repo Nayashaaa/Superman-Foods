@@ -91,8 +91,8 @@ class _ProfileState extends State<Profile> {
                 decoration: BoxDecoration(
                   color: Colors.redAccent,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.elliptical(180, 120),
-                    bottomRight: Radius.elliptical(180, 120),
+                    bottomLeft: Radius.circular(200),
+                    bottomRight: Radius.circular(200),
                   )
                 ),
                 child: Column(children: [
