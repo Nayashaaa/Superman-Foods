@@ -137,16 +137,17 @@ class _profileSettingState extends State<profileSetting> {
           child: Column(
             children: [
               Container(
+                height: MediaQuery.of(context).size.height * 0.35,
                 decoration: BoxDecoration(
                   color: Colors.redAccent,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(150),
-                    bottomRight: Radius.circular(150),
+                    bottomLeft: Radius.elliptical(200, 140),
+                    bottomRight: Radius.elliptical(200, 140),
                   )
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.045),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Row(
                 children: [
                   Container(
@@ -173,34 +174,38 @@ class _profileSettingState extends State<profileSetting> {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Container(
-                padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
+                height: MediaQuery.of(context).size.height * 0.2,
+                padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
                 child: Stack(
                   children: [
                     _image != null
                         ? CircleAvatar(
-                            radius: 50,
+                            radius: 45,
                             backgroundImage: MemoryImage(_image!),
                           )
                         : img != ''
                             ? CircleAvatar(
-                                radius: 50,
+                                radius: 45,
                                 backgroundImage: NetworkImage(imgUrl.toString()),
                               )
                             : CircleAvatar(
-                                radius: 50,
+                                radius: 45,
                                 backgroundColor: Colors.white,
                                 child: Icon(Icons.person, size: 55, color: Colors.redAccent),
                               ),
                     Container(
-                      margin: EdgeInsets.all(60),
+                      margin: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.16,
+                      MediaQuery.of(context).size.width * 0.16,
+                      MediaQuery.of(context).size.width * 0.13,
+                      MediaQuery.of(context).size.width * 0.1),
                       child: InkWell(
                         onTap: () {
                           selectImage();
                         },
                         child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.width * 0.15,
-                          padding: EdgeInsets.all(16.0),
+                          width: MediaQuery.of(context).size.width * 0.13,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.025),
                           decoration: BoxDecoration(
                               color: Colors.amber[400], borderRadius: BorderRadius.circular(50)),
                           child: Icon(Icons.camera_alt_outlined, size: 30, color: Colors.white),
@@ -224,7 +229,7 @@ class _profileSettingState extends State<profileSetting> {
                       child: Text(
                         'Name',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: MediaQuery.of(context).size.width * 0.045,
                           fontFamily: 'Lato',
                           color: Colors.redAccent,
                         ),
@@ -234,7 +239,7 @@ class _profileSettingState extends State<profileSetting> {
                       controller: _nameController,
                       style: TextStyle(
                         fontFamily: 'Lato',
-                        fontSize: 18,
+                        fontSize: MediaQuery.of(context).size.width * 0.047,
                       ),
                       cursorColor: Colors.grey,
                       decoration: InputDecoration(
@@ -252,7 +257,7 @@ class _profileSettingState extends State<profileSetting> {
                       child: Text(
                         'Address',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: MediaQuery.of(context).size.width * 0.045,
                           fontFamily: 'Lato',
                           color: Colors.redAccent,
                         ),
@@ -262,7 +267,7 @@ class _profileSettingState extends State<profileSetting> {
                       controller: _addressController,
                       style: TextStyle(
                         fontFamily: 'Lato',
-                        fontSize: 18,
+                        fontSize: MediaQuery.of(context).size.width * 0.047,
                       ),
                       cursorColor: Colors.grey,
                       decoration: InputDecoration(
@@ -280,7 +285,7 @@ class _profileSettingState extends State<profileSetting> {
                       child: Text(
                         'Email',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: MediaQuery.of(context).size.width * 0.045,
                           fontFamily: 'Lato',
                           color: Colors.redAccent,
                         ),
@@ -290,7 +295,7 @@ class _profileSettingState extends State<profileSetting> {
                       controller: _emailController,
                       style: TextStyle(
                         fontFamily: 'Lato',
-                        fontSize: 18,
+                        fontSize: MediaQuery.of(context).size.width * 0.047,
                       ),
                       cursorColor: Colors.grey,
                       decoration: InputDecoration(
@@ -308,7 +313,7 @@ class _profileSettingState extends State<profileSetting> {
                       child: Text(
                         'Phone',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: MediaQuery.of(context).size.width * 0.045,
                           fontFamily: 'Lato',
                           color: Colors.redAccent,
                         ),
@@ -318,7 +323,7 @@ class _profileSettingState extends State<profileSetting> {
                       controller: _phoneController,
                       style: TextStyle(
                         fontFamily: 'Lato',
-                        fontSize: 18,
+                        fontSize: MediaQuery.of(context).size.width * 0.047,
                       ),
                       cursorColor: Colors.grey,
                       decoration: InputDecoration(
@@ -330,7 +335,7 @@ class _profileSettingState extends State<profileSetting> {
                         ),
                       ),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.width * 0.09),
+                    SizedBox(height: MediaQuery.of(context).size.width * 0.05),
                     InkWell(
                       onTap: () {
                         updateDetails();

@@ -4,6 +4,7 @@ import 'package:supertest/features/favourites/favourites.dart';
 import 'package:supertest/features/home/home.dart';
 import 'package:supertest/features/login/login.dart';
 import 'package:pocketbase/pocketbase.dart';
+import 'package:supertest/features/orders/order.dart';
 import 'package:supertest/features/policies/privacy_policy.dart';
 import 'package:supertest/features/policies/return_policy.dart';
 import 'package:supertest/features/user/userSetting.dart';
@@ -91,8 +92,8 @@ class _ProfileState extends State<Profile> {
                 decoration: BoxDecoration(
                   color: Colors.redAccent,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(200),
-                    bottomRight: Radius.circular(200),
+                    bottomLeft: Radius.elliptical(200, 140),
+                    bottomRight: Radius.elliptical(200, 140),
                   )
                 ),
                 child: Column(children: [
@@ -285,7 +286,12 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => orders()),
+                        );
+                      },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.075,
                         decoration: BoxDecoration(border: Border.all(color: Colors.grey.withOpacity(0.06))),
