@@ -7,6 +7,8 @@ import 'package:pocketbase/pocketbase.dart';
 import 'package:supertest/features/orders/order.dart';
 import 'package:supertest/features/policies/privacy_policy.dart';
 import 'package:supertest/features/policies/return_policy.dart';
+import 'package:supertest/features/reviews/review.dart';
+import 'package:supertest/features/trackOrders/trackOrder.dart';
 import 'package:supertest/features/user/userSetting.dart';
 
 class Profile extends StatefulWidget {
@@ -289,7 +291,7 @@ class _ProfileState extends State<Profile> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => orders()),
+                          MaterialPageRoute(builder: (context) => Reviews()),
                         );
                       },
                       child: Container(

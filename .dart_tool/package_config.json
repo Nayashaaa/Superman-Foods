@@ -152,6 +152,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "flutter_rating_bar",
+      "rootUri": "file:///C:/Users/nayas/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_rating_bar-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "flutter_session_manager",
       "rootUri": "file:///C:/Users/nayas/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_session_manager-1.0.3",
       "packageUri": "lib/",
@@ -500,7 +506,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-07-20T08:10:55.398320Z",
+  "generated": "2023-08-03T10:27:40.192036Z",
   "generator": "pub",
   "generatorVersion": "3.0.0"
 }
