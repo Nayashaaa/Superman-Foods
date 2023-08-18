@@ -326,9 +326,10 @@ class _HomeState extends State<Home> {
                                 TextButton(
                                     onPressed: () {
                                       Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => Categories()),
-                                    );
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Categories()),
+                                      );
                                     },
                                     child: Text(
                                       'View More',
@@ -462,9 +463,11 @@ class _HomeState extends State<Home> {
                                 TextButton(
                                     onPressed: () {
                                       Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => popularMenu()),
-                                    );
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                popularMenu()),
+                                      );
                                     },
                                     child: Text(
                                       'View More',
@@ -526,7 +529,6 @@ class _HomeState extends State<Home> {
                                                       itemId: (ID[itemIndex])),
                                             ),
                                           );
-
                                         },
                                         child: Container(
                                           margin: EdgeInsets.only(bottom: 20),
@@ -738,9 +740,11 @@ class _HomeState extends State<Home> {
                                 TextButton(
                                     onPressed: () {
                                       Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => popularRestaurant()),
-                                    );
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                popularRestaurant()),
+                                      );
                                     },
                                     child: Text(
                                       'View More',
@@ -802,8 +806,10 @@ class _HomeState extends State<Home> {
                                           );
                                         },
                                         child: Container(
-                                          width:
-                                              MediaQuery.of(context).size.width * 0.7,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.7,
                                           margin: EdgeInsets.symmetric(
                                               horizontal: 5),
                                           decoration: BoxDecoration(
@@ -818,7 +824,10 @@ class _HomeState extends State<Home> {
                                               Expanded(
                                                 flex: 2,
                                                 child: Container(
-                                                  width: MediaQuery.of(context).size.width *0.5 ,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.5,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.only(
@@ -830,7 +839,12 @@ class _HomeState extends State<Home> {
                                                   ),
                                                   child: ClipRRect(
                                                     borderRadius:
-                                                        BorderRadius.only(topLeft: Radius.circular(25),topRight: Radius.circular(25)),
+                                                        BorderRadius.only(
+                                                            topLeft: Radius
+                                                                .circular(25),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    25)),
                                                     clipBehavior: Clip
                                                         .antiAliasWithSaveLayer,
                                                     child: Image.network(
@@ -843,12 +857,20 @@ class _HomeState extends State<Home> {
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
-                                                  padding: EdgeInsets.only(left: mediaQuery.size.width * 0.05),
+                                                  padding: EdgeInsets.only(
+                                                      left: mediaQuery
+                                                              .size.width *
+                                                          0.05),
                                                   decoration: BoxDecoration(
                                                     borderRadius:
-                                                        BorderRadius.only(bottomLeft:Radius.circular(25), bottomRight:Radius.circular(25)),
+                                                        BorderRadius.only(
+                                                            bottomLeft: Radius
+                                                                .circular(25),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    25)),
                                                   ),
-                                                child: Column(
+                                                  child: Column(
                                                     children: [
                                                       Align(
                                                         alignment: Alignment
@@ -925,11 +947,10 @@ class _HomeState extends State<Home> {
                                                                       .w400,
                                                             ),
                                                           ),
-                                                                                                                  ],
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
-
                                                 ),
                                               ),
                                             ],
@@ -977,7 +998,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-      bottomNavigationBar: BottomMenu(activeIndex: 0),
+        bottomNavigationBar: BottomMenu(activeIndex: 0),
       ),
     );
   }

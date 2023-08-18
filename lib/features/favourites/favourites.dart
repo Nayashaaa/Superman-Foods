@@ -203,7 +203,7 @@ class _favouritesState extends State<favourites> {
                           height: constraints.maxHeight * 0.03,
                         ),
                         Column(
-                children: List.generate(items.length, (index) {
+                  children: List.generate(items.length, (index) {
                   return InkWell(
                     onTap: () {
                       Navigator.push(

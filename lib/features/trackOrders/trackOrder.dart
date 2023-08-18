@@ -4,13 +4,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:collection/collection.dart';
+import 'package:supertest/features/reviews/rating.dart';
+import 'package:supertest/features/reviews/review.dart';
 
-class trackOrder extends StatefulWidget {
+import '../home/home.dart';
+
+class TrackOrder extends StatefulWidget {
   @override
-  State<trackOrder> createState() => _trackOrderState();
+  State<TrackOrder> createState() => _trackOrderState();
 }
 
-class _trackOrderState extends State<trackOrder> {
+class _trackOrderState extends State<TrackOrder> {
   final pb = PocketBase('http://78.47.197.153');
   double subTotal = 0;
   int totalQty = 0;
@@ -91,6 +95,9 @@ class _trackOrderState extends State<trackOrder> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return SafeArea(
         child: Scaffold(
       body: Container(
@@ -103,16 +110,15 @@ class _trackOrderState extends State<trackOrder> {
               builder: (BuildContext context, BoxConstraints constraints) {
                 return SingleChildScrollView(
                   child: ConstrainedBox(
-                    constraints:
-                        BoxConstraints(minHeight: constraints.maxHeight),
+                    constraints: BoxConstraints(minHeight: screenHeight),
                     child: Column(
                       children: [
                         Row(
                           children: [
                             Container(
                               margin: EdgeInsets.only(
-                                left: constraints.maxWidth * 0.03,
-                                top: constraints.maxHeight * 0.02,
+                                left: screenWidth * 0.03,
+                                top: screenHeight * 0.02,
                               ),
                               child: IconButton(
                                 icon: Icon(
@@ -121,24 +127,27 @@ class _trackOrderState extends State<trackOrder> {
                                   size: 30,
                                 ),
                                 onPressed: () {
-                                  Navigator.pushNamed(context, '/home');
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Home()));
                                 },
                               ),
                             ),
-                            SizedBox(width: constraints.maxWidth * 0.20),
+                            SizedBox(width: screenWidth * 0.20),
                             Text(
                               'View Status',
                               style: TextStyle(
-                                height: constraints.maxHeight * 0.0025,
+                                height: screenHeight * 0.0025,
                                 fontFamily: 'Lato',
-                                fontSize: constraints.maxWidth * 0.06,
+                                fontSize: screenWidth * 0.06,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.black,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: constraints.maxWidth * 0.04),
+                        SizedBox(height: screenWidth * 0.04),
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 22.0), // Adjust this to fit your needs.
@@ -155,7 +164,7 @@ class _trackOrderState extends State<trackOrder> {
                             ),
                           ),
                         ),
-                        SizedBox(height: constraints.maxWidth * 0.01),
+                        SizedBox(height: screenWidth * 0.02),
                         const Padding(
                           padding: EdgeInsets.only(
                               left: 22.0), // Adjust this to fit your needs.
@@ -165,28 +174,28 @@ class _trackOrderState extends State<trackOrder> {
                               'Order Date: June 1, 2023',
                               style: TextStyle(
                                 fontFamily: 'Lato',
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w100,
                                 color: Colors.black54,
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: constraints.maxWidth * 0.04),
+                        SizedBox(height: screenWidth * 0.04),
                         Column(
                           children: [
                             Container(
-                              width: constraints.maxWidth * 0.9,
-                              height: constraints.maxHeight * 0.12,
+                              width: screenWidth * 0.9,
+                              height: screenHeight * 0.105,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20)),
                               child: Row(
                                 children: [
-                                  SizedBox(width: constraints.maxWidth * 0.03),
+                                  SizedBox(width: screenWidth * 0.03),
                                   Container(
-                                    width: constraints.maxWidth * 0.16,
-                                    height: constraints.maxHeight * 0.085,
+                                    width: screenWidth * 0.16,
+                                    height: screenHeight * 0.080,
                                     decoration: BoxDecoration(
                                       color: Colors.red,
                                       borderRadius: BorderRadius.circular(20),
@@ -207,8 +216,7 @@ class _trackOrderState extends State<trackOrder> {
                                           child: Row(
                                             children: [
                                               SizedBox(
-                                                  width: constraints.maxWidth *
-                                                      0.04),
+                                                  width: screenWidth * 0.04),
                                               Text(
                                                 'Burger',
                                                 style: TextStyle(
@@ -218,13 +226,10 @@ class _trackOrderState extends State<trackOrder> {
                                                 ),
                                               ),
                                               SizedBox(
-                                                  width: constraints.maxWidth *
-                                                      0.25),
+                                                  width: screenWidth * 0.25),
                                               Container(
-                                                width: constraints.maxWidth *
-                                                    0.065,
-                                                height: constraints.maxWidth *
-                                                    0.065,
+                                                width: screenWidth * 0.065,
+                                                height: screenWidth * 0.065,
                                                 child: Icon(
                                                   Icons
                                                       .fiber_manual_record_rounded,
@@ -242,14 +247,10 @@ class _trackOrderState extends State<trackOrder> {
                                             ],
                                           ),
                                         ),
-                                        SizedBox(
-                                            height:
-                                                constraints.maxHeight * 0.01),
+                                        SizedBox(height: screenHeight * 0.01),
                                         Row(
                                           children: [
-                                            SizedBox(
-                                                width: constraints.maxWidth *
-                                                    0.04),
+                                            SizedBox(width: screenWidth * 0.04),
                                             Text(
                                               'Rs. 100',
                                               style: TextStyle(
@@ -259,13 +260,10 @@ class _trackOrderState extends State<trackOrder> {
                                                 color: Color(0xFF28B996),
                                               ),
                                             ),
-                                            SizedBox(
-                                                width: constraints.maxWidth *
-                                                    0.28),
+                                            SizedBox(width: screenWidth * 0.28),
                                             Container(
-                                              width: constraints.maxWidth * 0.2,
-                                              height:
-                                                  constraints.maxHeight * 0.03,
+                                              width: screenWidth * 0.2,
+                                              height: screenHeight * 0.03,
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(20),
@@ -294,20 +292,20 @@ class _trackOrderState extends State<trackOrder> {
                             )
                           ],
                         ),
-                        SizedBox(height: constraints.maxWidth * 0.04),
+                        SizedBox(height: screenWidth * 0.04),
 
                         // * STATUS CODE CONTAINER COLUMN
                         Column(
                           children: [
                             //1
                             SizedBox(
-                              width: constraints.maxWidth * 0.9,
-                              height: constraints.maxHeight * 0.06,
+                              width: screenWidth * 0.9,
+                              height: screenHeight * 0.06,
                               child: Row(
                                 children: [
                                   Container(
-                                    width: constraints.maxWidth * 0.10,
-                                    height: constraints.maxHeight * 0.05,
+                                    width: screenWidth * 0.10,
+                                    height: screenHeight * 0.05,
                                     decoration: BoxDecoration(
                                       color:
                                           Colors.red[100], // background color
@@ -371,13 +369,13 @@ class _trackOrderState extends State<trackOrder> {
 
                             //2
                             SizedBox(
-                              width: constraints.maxWidth * 0.9,
-                              height: constraints.maxHeight * 0.06,
+                              width: screenWidth * 0.9,
+                              height: screenHeight * 0.06,
                               child: Row(
                                 children: [
                                   Container(
-                                    width: constraints.maxWidth * 0.10,
-                                    height: constraints.maxHeight * 0.05,
+                                    width: screenWidth * 0.10,
+                                    height: screenHeight * 0.05,
                                     decoration: BoxDecoration(
                                       color:
                                           Colors.red[100], // background color
@@ -441,13 +439,13 @@ class _trackOrderState extends State<trackOrder> {
 
                             //3
                             SizedBox(
-                              width: constraints.maxWidth * 0.9,
-                              height: constraints.maxHeight * 0.06,
+                              width: screenWidth * 0.9,
+                              height: screenHeight * 0.06,
                               child: Row(
                                 children: [
                                   Container(
-                                    width: constraints.maxWidth * 0.10,
-                                    height: constraints.maxHeight * 0.05,
+                                    width: screenWidth * 0.10,
+                                    height: screenHeight * 0.05,
                                     decoration: BoxDecoration(
                                       color:
                                           Colors.red[100], // background color
@@ -511,13 +509,13 @@ class _trackOrderState extends State<trackOrder> {
 
                             //4
                             SizedBox(
-                              width: constraints.maxWidth * 0.9,
-                              height: constraints.maxHeight * 0.06,
+                              width: screenWidth * 0.9,
+                              height: screenHeight * 0.06,
                               child: Row(
                                 children: [
                                   Container(
-                                    width: constraints.maxWidth * 0.10,
-                                    height: constraints.maxHeight * 0.05,
+                                    width: screenWidth * 0.10,
+                                    height: screenHeight * 0.05,
                                     decoration: BoxDecoration(
                                       color:
                                           Colors.red[100], // background color
@@ -581,13 +579,13 @@ class _trackOrderState extends State<trackOrder> {
 
                             //5
                             SizedBox(
-                              width: constraints.maxWidth * 0.9,
-                              height: constraints.maxHeight * 0.06,
+                              width: screenWidth * 0.9,
+                              height: screenHeight * 0.06,
                               child: Row(
                                 children: [
                                   Container(
-                                    width: constraints.maxWidth * 0.10,
-                                    height: constraints.maxHeight * 0.05,
+                                    width: screenWidth * 0.10,
+                                    height: screenHeight * 0.05,
                                     decoration: BoxDecoration(
                                       color:
                                           Colors.red[100], // background color
@@ -610,7 +608,7 @@ class _trackOrderState extends State<trackOrder> {
                                         padding: EdgeInsets.fromLTRB(20, 0, 0,
                                             0), // Adjust the value as needed
                                         child: Text(
-                                          'Order Accepted',
+                                          'Order Delivered',
                                           style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w100,
@@ -651,7 +649,7 @@ class _trackOrderState extends State<trackOrder> {
                           ],
                         ),
 
-                        SizedBox(height: constraints.maxWidth * 0.08),
+                        SizedBox(height: screenWidth * 0.08),
 
                         //DRIVER KO LAGI BANAKO
                         const Padding(
@@ -671,23 +669,23 @@ class _trackOrderState extends State<trackOrder> {
                           ),
                         ),
 
-                        SizedBox(height: constraints.maxWidth * 0.04),
+                        SizedBox(height: screenWidth * 0.04),
 
                         // TODO: BUTTON BANAUNU BAKI XA YO CONTAINER LAI USING GESTURE DETECTOR
                         Column(
                           children: [
                             Container(
-                              width: constraints.maxWidth * 0.9,
-                              height: constraints.maxHeight * 0.10,
+                              width: screenWidth * 0.9,
+                              height: screenHeight * 0.10,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20)),
                               child: Row(
                                 children: [
-                                  SizedBox(width: constraints.maxWidth * 0.03),
+                                  SizedBox(width: screenWidth * 0.03),
                                   Container(
-                                    width: constraints.maxWidth * 0.15,
-                                    height: constraints.maxHeight * 0.075,
+                                    width: screenWidth * 0.15,
+                                    height: screenHeight * 0.075,
                                     decoration: BoxDecoration(
                                       color: Colors.red,
                                       borderRadius: BorderRadius.circular(20),
@@ -717,10 +715,8 @@ class _trackOrderState extends State<trackOrder> {
                                             padding: const EdgeInsets.fromLTRB(
                                                 15, 0, 0, 0),
                                             child: SizedBox(
-                                              width:
-                                                  constraints.maxWidth * 0.065,
-                                              height:
-                                                  constraints.maxWidth * 0.065,
+                                              width: screenWidth * 0.065,
+                                              height: screenWidth * 0.065,
                                               child: const Icon(
                                                 Icons.star_rounded,
                                                 size: 25,
@@ -740,13 +736,43 @@ class _trackOrderState extends State<trackOrder> {
                                       ),
                                     ], //children
                                   ),
-                                  SizedBox(width: constraints.maxWidth * 0.25),
-                                  Container(
-                                    width: constraints.maxWidth * 0.15,
+
+                                  //BUTTON WITH ICON
+                                  // SizedBox(width: screenWidth * 0.25),
+                                  // Container(
+                                  //   width: screenWidth * 0.15,
+                                  //   height: screenHeight * 0.075,
+                                  //   decoration: BoxDecoration(
+                                  //     color:
+                                  //         Colors.redAccent, // background color
+                                  //     border: Border.all(
+                                  //       color: Colors.redAccent, // border color
+                                  //       width: 1, // border width
+                                  //     ),
+                                  //     borderRadius: BorderRadius.circular(
+                                  //         20), // border corner radius
+                                  //   ),
+                                  //   child: const Icon(
+                                  //     Icons.phone_in_talk_outlined,
+                                  //     size: 35,
+                                  //     color: Colors.white,
+                                  //   ),
+                                  // ),
+
+                                  //BUTTON WITH 'Write a Review'
+                                  SizedBox(width: screenWidth * 0.05),
+                                  InkWell(
+                                    onTap:(){
+                                      Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => ratingRider()),
+                                      );
+                                    },
+                                    child: Container(
+                                    width: constraints.maxWidth * 0.35,
                                     height: constraints.maxHeight * 0.075,
                                     decoration: BoxDecoration(
                                       color:
-                                          Colors.redAccent, // background color
+                                      Colors.redAccent, // background color
                                       border: Border.all(
                                         color: Colors.redAccent, // border color
                                         width: 1, // border width
@@ -754,13 +780,23 @@ class _trackOrderState extends State<trackOrder> {
                                       borderRadius: BorderRadius.circular(
                                           20), // border corner radius
                                     ),
-                                    child: const Icon(
-                                      Icons.phone_in_talk_outlined,
-                                      size: 35,
-                                      color: Colors.white,
-                                    ),
+                                    child:Center(
+                                      child: Text(
+                                          'Write a Review',
+                                          style: TextStyle(
+                                            fontFamily: 'Lato',
+                                            fontSize:
+                                            constraints.maxWidth * 0.04,
+                                            fontWeight: FontWeight.w900,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                    ) 
+                                    
                                   ),
-                                ],
+
+                                  )
+                                   ],
                               ),
                             )
                           ],

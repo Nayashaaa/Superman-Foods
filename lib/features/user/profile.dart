@@ -291,7 +291,7 @@ class _ProfileState extends State<Profile> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Reviews()),
+                          MaterialPageRoute(builder: (context) => orders()),
                         );
                       },
                       child: Container(

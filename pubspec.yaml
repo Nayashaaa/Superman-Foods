@@ -92,6 +92,8 @@ flutter:
      - lib\assets\images\profile.png
      - lib/assets/images/splash.png
      - lib/assets/images/start.png
+     - lib/assets/images/ordered.svg
+     - lib/assets/images/delivered.svg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

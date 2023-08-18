@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:collection/collection.dart';
+import 'package:supertest/features/menu/popularMenu.dart';
 
 import '../user/confirmLocation.dart';
 
@@ -17,6 +18,7 @@ class _cartState extends State<cart> {
   int totalQty = 0;
   int disAmt = 0;
   int deliveryFee = 100;
+  int itemIndex = 0;
 
 
   Future<void>? userFuture;
@@ -97,6 +99,40 @@ class _cartState extends State<cart> {
       );
     }
   }
+  
+  Future<void> emptyCart() async{
+    if(isEmpty){
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text('Cart is empty!',
+            style: TextStyle(
+              fontFamily: 'Lato',
+              fontSize: MediaQuery.of(context).size.height * 0.025,
+
+            ),),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('OK',
+                style:TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.025,
+                  color: Colors.redAccent
+                )),
+              ),
+            ],
+          );
+        },
+      );
+    }
+    else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => confirmLocation()),
+      );
+    }
+  }
 
   void _incrementCounter(int index) async {
     final Id = id[index];
@@ -146,6 +182,8 @@ class _cartState extends State<cart> {
     }
   }
 
+
+  bool isEmpty = true;
   Future<void> getCartDetails() async {
     try {
       String fltr = 'customer = $cust_email';
@@ -178,6 +216,7 @@ class _cartState extends State<cart> {
           description.add(desc);
           price.add(cost);
           rate.add(cpi);
+          isEmpty = false; 
         }
         subTotal = price.sum;
         totalQty = id.length;
@@ -187,7 +226,9 @@ class _cartState extends State<cart> {
       print('Error fetching items: $e');
     }
   }
+  
 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -561,7 +602,10 @@ class _cartState extends State<cart> {
                         ),
                         TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/popularMenu');
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => popularMenu()),
+                              );
                             },
                             child: Padding(
                               padding: EdgeInsets.only(
@@ -829,10 +873,7 @@ class _cartState extends State<cart> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => confirmLocation()),
-                      );
+                      emptyCart();
                     },
                     child: Container(
                         width: MediaQuery.of(context).size.width * 0.8,
